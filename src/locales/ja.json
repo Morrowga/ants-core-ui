@@ -1,0 +1,164 @@
+{
+  "common": {
+    "signOut": "サインアウト",
+    "logout": "ログアウト",
+    "cancel": "キャンセル",
+    "close": "閉じる",
+    "loading": "読み込み中…"
+  },
+  "marketplace": {
+    "pageTitle": "アプリマーケットプレイス",
+    "pageDescription": "この会社に必要なモジュールを有効にしてください。各モジュールは月額固定料金です。",
+    "boundaryLabel": "アプリマーケットプレイス",
+    "seeMore": "もっと見る",
+    "enable": "有効にする",
+    "enabling": "有効化中…",
+    "finishPayment": "支払いを完了する",
+    "disable": "無効にする",
+    "enter": "開く",
+    "opening": "開いています…",
+    "renews": "{{date}}に更新",
+    "ends": "{{date}}に終了",
+    "status": {
+      "notEnabled": "未有効",
+      "active": "有効",
+      "trialing": "トライアル中",
+      "incomplete": "支払い未完了",
+      "cancelling": "キャンセル中 — {{date}}まで有効"
+    },
+    "disableDialog": {
+      "title": "{{name}}を無効にしますか？",
+      "description": "モジュールは現在の請求期間の終了まで有効のままで、その後オフになります — 以降の請求はありません。データは保持され、いつでも再度有効にできます。",
+      "keepOn": "有効のままにする",
+      "disableAtPeriodEnd": "期間終了時に無効にする",
+      "disabling": "無効化中…"
+    },
+    "dashboardNotConfigured": "このモジュールのダッシュボードはまだ設定されていません。",
+    "enableFailed": "モジュールの有効化に失敗しました。もう一度お試しください。",
+    "disableFailed": "モジュールの無効化に失敗しました。もう一度お試しください。",
+    "enterFailed": "モジュールへの移行を開始できませんでした。もう一度お試しください。"
+  },
+  "features": {
+    "companies": {
+      "pageTitle": "会社",
+      "pageDescription": "組織傘下の各会社と、それぞれが使用するモジュール。",
+      "newCompany": "新規会社",
+      "boundaryLabel": "会社一覧",
+      "table": {
+        "name": "名前",
+        "industry": "業種",
+        "timezone": "タイムゾーン",
+        "modulesEnabled": "有効なモジュール",
+        "created": "作成日",
+        "actions": "操作",
+        "manageModules": "モジュールを管理"
+      },
+      "empty": "まだ会社がありません。作成してモジュールの有効化を始めてください。"
+    },
+    "createCompany": {
+      "pageTitle": "新規会社",
+      "pageDescription": "組織傘下の独立したワークスペースで、固有のモジュールと請求行を持ちます。",
+      "fields": {
+        "name": { "label": "名前", "error": "会社名を入力してください。" },
+        "industry": { "label": "業種", "placeholder": "例: 小売", "error": "業種を入力してください。" },
+        "timezone": { "label": "タイムゾーン", "placeholder": "タイムゾーンを選択", "error": "タイムゾーンを選択してください。" },
+        "currency": { "label": "通貨", "placeholder": "USD", "error": "通貨を選択してください。" },
+        "workingHoursStart": { "label": "勤務開始時間" },
+        "workingHoursEnd": { "label": "勤務終了時間" },
+        "workdays": { "label": "勤務日", "error": "少なくとも1つの勤務日を選択してください。" }
+      },
+      "days": {
+        "mon": "月", "tue": "火", "wed": "水", "thu": "木", "fri": "金", "sat": "土", "sun": "日"
+      },
+      "submit": "会社を作成",
+      "submitting": "作成中…",
+      "genericError": "会社を作成できませんでした。入力内容を確認して再試行してください。",
+      "noOrganizationError": "セッションに組織情報がありません — 再度ログインしてください。"
+    },
+    "billing": {
+      "pageTitle": "請求",
+      "pageDescription": "登録済みカード、現在のモジュール料金、および今期の支払い額。",
+      "paymentMethod": {
+        "title": "お支払い方法",
+        "noCard": "カードが登録されていません",
+        "update": "更新"
+      },
+      "paymentMethodDialog": {
+        "title": "お支払い方法を追加",
+        "description": "モジュールを有効にする前にカードの登録が必要です。カード情報はStripeで安全に入力され、今後のモジュール料金のために保存されます。",
+        "cancel": "キャンセル",
+        "save": "カードを保存",
+        "saving": "保存中…",
+        "cardConfirmError": "カードを確認できませんでした。もう一度お試しください。",
+        "genericError": "カードを保存できませんでした。もう一度お試しください。"
+      },
+      "currentCharges": {
+        "title": "現在の請求",
+        "boundaryLabel": "あなたの請求",
+        "empty": "まだモジュールが有効になっていません — 会社のマーケットプレイスから有効にしてください。",
+        "table": {
+          "company": "会社",
+          "module": "モジュール",
+          "price": "料金",
+          "status": "ステータス",
+          "total": "合計"
+        },
+        "statusCancelling": "キャンセル中"
+      }
+    },
+    "invoices": {
+      "pageTitle": "請求書",
+      "pageDescription": "これまでのすべての請求とダウンロード可能なPDF。",
+      "boundaryLabel": "請求書履歴",
+      "empty": "まだ請求書がありません — モジュールを有効にすると最初の請求書が発行されます。",
+      "table": {
+        "number": "請求書番号",
+        "date": "日付",
+        "status": "ステータス",
+        "amount": "金額",
+        "download": "ダウンロード",
+        "pdf": "PDF"
+      }
+    },
+    "sidebar": {
+      "nav": {
+        "companies": "会社",
+        "billing": "請求",
+        "invoices": "請求書",
+        "settings": "設定"
+      },
+      "languageAriaLabel": "言語"
+    },
+    "organizationSettings": {
+      "pageTitle": "組織設定",
+      "orgName": {
+        "title": "組織名",
+        "description": "請求書およびすべてのモジュールに表示されます。",
+        "label": "名前",
+        "placeholder": "あなたの組織",
+        "error": "組織名を入力してください。",
+        "save": "名前を保存",
+        "saving": "保存中…",
+        "saved": "保存しました。",
+        "genericError": "組織名を保存できませんでした。もう一度お試しください。",
+        "loadError": "組織名を読み込めませんでした。ページを更新してください。"
+      },
+      "ownerEmail": {
+        "title": "オーナーメールアドレス",
+        "description": "現在は読み取り専用です — ログインメールアドレスの変更は別途対応が必要です。"
+      },
+      "changePassword": {
+        "title": "パスワードを変更",
+        "current": { "label": "現在のパスワード", "error": "現在のパスワードを入力してください。" },
+        "new": { "label": "新しいパスワード", "error": "8文字以上で入力してください。" },
+        "confirm": { "label": "新しいパスワードを確認" },
+        "mismatchError": "パスワードが一致しません。",
+        "submit": "パスワードを変更",
+        "submitting": "変更中…",
+        "saved": "パスワードを変更しました。",
+        "genericError": "パスワードを変更できませんでした。もう一度お試しください。",
+        "incorrectCurrent": "現在のパスワードが正しくありません。"
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+name: Core Dashboard CI
+
+# Adjust `paths` if this lives in a monorepo alongside portal/hr-dashboard/
+# backend -- as a standalone repo, no path filter is needed and this can
+# just run on every push/PR. Ask before assuming which one applies.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "yarn"
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Typecheck
+        run: yarn typecheck
+
+      - name: Build
+        run: yarn build
+        env:
+          # Placeholders -- CI needs real values for a build that touches
+          # these at build time (Vite inlines VITE_* vars at build time,
+          # not runtime). Set the real ones as repo/environment secrets:
+          # Settings -> Secrets and variables -> Actions.
+          VITE_API_BASE_URL: ${{ secrets.VITE_API_BASE_URL }}
+          VITE_HR_DASHBOARD_URL: ${{ secrets.VITE_HR_DASHBOARD_URL }}
+          VITE_STRIPE_PUBLISHABLE_KEY: ${{ secrets.VITE_STRIPE_PUBLISHABLE_KEY }}
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: core-dashboard-dist
+          path: dist/
+          retention-days: 7

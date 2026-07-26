@@ -1,0 +1,164 @@
+{
+  "common": {
+    "signOut": "退出登录",
+    "logout": "登出",
+    "cancel": "取消",
+    "close": "关闭",
+    "loading": "加载中…"
+  },
+  "marketplace": {
+    "pageTitle": "应用市场",
+    "pageDescription": "为此公司启用所需模块，每个模块按月固定收费。",
+    "boundaryLabel": "应用市场",
+    "seeMore": "查看更多",
+    "enable": "启用",
+    "enabling": "启用中…",
+    "finishPayment": "完成付款",
+    "disable": "停用",
+    "enter": "进入",
+    "opening": "正在打开…",
+    "renews": "{{date}} 续费",
+    "ends": "{{date}} 到期",
+    "status": {
+      "notEnabled": "未启用",
+      "active": "已启用",
+      "trialing": "试用中",
+      "incomplete": "付款未完成",
+      "cancelling": "取消中 — 有效至 {{date}}"
+    },
+    "disableDialog": {
+      "title": "停用 {{name}}？",
+      "description": "模块将在当前计费周期结束前保持活跃，之后关闭 — 不再产生费用。您的数据将保留，可随时重新启用。",
+      "keepOn": "保持启用",
+      "disableAtPeriodEnd": "周期结束时停用",
+      "disabling": "停用中…"
+    },
+    "dashboardNotConfigured": "此模块的仪表板尚未配置。",
+    "enableFailed": "模块启用失败，请重试。",
+    "disableFailed": "模块停用失败，请重试。",
+    "enterFailed": "无法跳转到该模块，请重试。"
+  },
+  "features": {
+    "companies": {
+      "pageTitle": "公司",
+      "pageDescription": "您组织下的各公司及其运行的模块。",
+      "newCompany": "新建公司",
+      "boundaryLabel": "公司列表",
+      "table": {
+        "name": "名称",
+        "industry": "行业",
+        "timezone": "时区",
+        "modulesEnabled": "已启用模块",
+        "created": "创建时间",
+        "actions": "操作",
+        "manageModules": "管理模块"
+      },
+      "empty": "暂无公司，创建一个以开始启用模块。"
+    },
+    "createCompany": {
+      "pageTitle": "新建公司",
+      "pageDescription": "组织下的独立工作区，拥有独立的模块和账单记录。",
+      "fields": {
+        "name": { "label": "名称", "error": "请输入公司名称。" },
+        "industry": { "label": "行业", "placeholder": "如：零售", "error": "请输入行业。" },
+        "timezone": { "label": "时区", "placeholder": "选择时区", "error": "请选择时区。" },
+        "currency": { "label": "货币", "placeholder": "USD", "error": "请选择货币。" },
+        "workingHoursStart": { "label": "上班时间" },
+        "workingHoursEnd": { "label": "下班时间" },
+        "workdays": { "label": "工作日", "error": "请至少选择一个工作日。" }
+      },
+      "days": {
+        "mon": "周一", "tue": "周二", "wed": "周三", "thu": "周四", "fri": "周五", "sat": "周六", "sun": "周日"
+      },
+      "submit": "创建公司",
+      "submitting": "创建中…",
+      "genericError": "无法创建公司，请检查填写内容后重试。",
+      "noOrganizationError": "您的会话中没有组织信息 — 请重新登录。"
+    },
+    "billing": {
+      "pageTitle": "账单",
+      "pageDescription": "已绑定的银行卡、当前模块费用及本期应付金额。",
+      "paymentMethod": {
+        "title": "支付方式",
+        "noCard": "未绑定银行卡",
+        "update": "更新"
+      },
+      "paymentMethodDialog": {
+        "title": "添加支付方式",
+        "description": "启用模块前需要绑定一张银行卡。卡片信息通过 Stripe 安全输入，并保存用于后续模块费用扣款。",
+        "cancel": "取消",
+        "save": "保存银行卡",
+        "saving": "保存中…",
+        "cardConfirmError": "无法验证银行卡，请重试。",
+        "genericError": "无法保存该银行卡，请重试。"
+      },
+      "currentCharges": {
+        "title": "当前费用",
+        "boundaryLabel": "您的账单",
+        "empty": "暂未启用任何模块 — 请从公司的应用市场中启用。",
+        "table": {
+          "company": "公司",
+          "module": "模块",
+          "price": "价格",
+          "status": "状态",
+          "total": "合计"
+        },
+        "statusCancelling": "取消中"
+      }
+    },
+    "invoices": {
+      "pageTitle": "发票",
+      "pageDescription": "至今所有账单记录及可下载的 PDF。",
+      "boundaryLabel": "发票历史",
+      "empty": "暂无发票 — 启用模块后将生成第一张发票。",
+      "table": {
+        "number": "发票编号",
+        "date": "日期",
+        "status": "状态",
+        "amount": "金额",
+        "download": "下载",
+        "pdf": "PDF"
+      }
+    },
+    "sidebar": {
+      "nav": {
+        "companies": "公司",
+        "billing": "账单",
+        "invoices": "发票",
+        "settings": "设置"
+      },
+      "languageAriaLabel": "语言"
+    },
+    "organizationSettings": {
+      "pageTitle": "组织设置",
+      "orgName": {
+        "title": "组织名称",
+        "description": "显示在发票及所有模块中。",
+        "label": "名称",
+        "placeholder": "您的组织",
+        "error": "请输入组织名称。",
+        "save": "保存名称",
+        "saving": "保存中…",
+        "saved": "已保存。",
+        "genericError": "无法保存组织名称，请重试。",
+        "loadError": "无法加载组织名称，请刷新页面。"
+      },
+      "ownerEmail": {
+        "title": "所有者邮箱",
+        "description": "目前为只读 — 更改登录邮箱需要单独的操作流程。"
+      },
+      "changePassword": {
+        "title": "修改密码",
+        "current": { "label": "当前密码", "error": "请输入当前密码。" },
+        "new": { "label": "新密码", "error": "请使用至少 8 个字符。" },
+        "confirm": { "label": "确认新密码" },
+        "mismatchError": "两次密码不一致。",
+        "submit": "修改密码",
+        "submitting": "修改中…",
+        "saved": "密码已修改。",
+        "genericError": "无法修改密码，请重试。",
+        "incorrectCurrent": "当前密码不正确。"
+      }
+    }
+  }
+}

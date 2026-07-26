@@ -1,0 +1,164 @@
+{
+  "common": {
+    "signOut": "로그아웃",
+    "logout": "로그아웃",
+    "cancel": "취소",
+    "close": "닫기",
+    "loading": "로딩 중…"
+  },
+  "marketplace": {
+    "pageTitle": "앱 마켓플레이스",
+    "pageDescription": "이 회사에 필요한 모듈을 활성화하세요. 각 모듈은 월정액 요금입니다.",
+    "boundaryLabel": "앱 마켓플레이스",
+    "seeMore": "더 보기",
+    "enable": "활성화",
+    "enabling": "활성화 중…",
+    "finishPayment": "결제 완료하기",
+    "disable": "비활성화",
+    "enter": "열기",
+    "opening": "열리는 중…",
+    "renews": "{{date}} 갱신",
+    "ends": "{{date}} 종료",
+    "status": {
+      "notEnabled": "비활성",
+      "active": "활성",
+      "trialing": "체험 중",
+      "incomplete": "결제 미완료",
+      "cancelling": "취소 중 — {{date}}까지 활성"
+    },
+    "disableDialog": {
+      "title": "{{name}}을(를) 비활성화할까요?",
+      "description": "모듈은 현재 결제 기간 종료까지 유지되다가 꺼집니다 — 이후 요금은 청구되지 않습니다. 데이터는 보관되며 언제든 다시 활성화할 수 있습니다.",
+      "keepOn": "유지하기",
+      "disableAtPeriodEnd": "기간 종료 시 비활성화",
+      "disabling": "비활성화 중…"
+    },
+    "dashboardNotConfigured": "이 모듈의 대시보드가 아직 구성되지 않았습니다.",
+    "enableFailed": "모듈 활성화에 실패했습니다. 다시 시도해 주세요.",
+    "disableFailed": "모듈 비활성화에 실패했습니다. 다시 시도해 주세요.",
+    "enterFailed": "해당 모듈로 이동을 시작할 수 없었습니다. 다시 시도해 주세요."
+  },
+  "features": {
+    "companies": {
+      "pageTitle": "회사",
+      "pageDescription": "조직 산하의 각 회사와 운영 중인 모듈.",
+      "newCompany": "새 회사",
+      "boundaryLabel": "회사 목록",
+      "table": {
+        "name": "이름",
+        "industry": "업종",
+        "timezone": "시간대",
+        "modulesEnabled": "활성화된 모듈",
+        "created": "생성일",
+        "actions": "작업",
+        "manageModules": "모듈 관리"
+      },
+      "empty": "아직 회사가 없습니다. 하나 만들어 모듈을 활성화해 보세요."
+    },
+    "createCompany": {
+      "pageTitle": "새 회사",
+      "pageDescription": "조직 산하의 독립된 워크스페이스로, 고유한 모듈과 청구 항목을 가집니다.",
+      "fields": {
+        "name": { "label": "이름", "error": "회사 이름을 입력해 주세요." },
+        "industry": { "label": "업종", "placeholder": "예: 소매업", "error": "업종을 입력해 주세요." },
+        "timezone": { "label": "시간대", "placeholder": "시간대 선택", "error": "시간대를 선택해 주세요." },
+        "currency": { "label": "통화", "placeholder": "USD", "error": "통화를 선택해 주세요." },
+        "workingHoursStart": { "label": "근무 시작 시간" },
+        "workingHoursEnd": { "label": "근무 종료 시간" },
+        "workdays": { "label": "근무일", "error": "근무일을 하나 이상 선택해 주세요." }
+      },
+      "days": {
+        "mon": "월", "tue": "화", "wed": "수", "thu": "목", "fri": "금", "sat": "토", "sun": "일"
+      },
+      "submit": "회사 만들기",
+      "submitting": "생성 중…",
+      "genericError": "회사를 만들 수 없었습니다. 입력 내용을 확인하고 다시 시도해 주세요.",
+      "noOrganizationError": "세션에 조직 정보가 없습니다 — 다시 로그인해 주세요."
+    },
+    "billing": {
+      "pageTitle": "결제",
+      "pageDescription": "등록된 카드, 현재 모듈 요금, 이번 기간 결제 금액.",
+      "paymentMethod": {
+        "title": "결제 수단",
+        "noCard": "등록된 카드 없음",
+        "update": "업데이트"
+      },
+      "paymentMethodDialog": {
+        "title": "결제 수단 추가",
+        "description": "모듈을 활성화하기 전에 카드를 등록해야 합니다. 카드 정보는 Stripe를 통해 안전하게 입력되며 향후 모듈 요금 청구에 사용됩니다.",
+        "cancel": "취소",
+        "save": "카드 저장",
+        "saving": "저장 중…",
+        "cardConfirmError": "카드를 확인할 수 없었습니다. 다시 시도해 주세요.",
+        "genericError": "카드를 저장할 수 없었습니다. 다시 시도해 주세요."
+      },
+      "currentCharges": {
+        "title": "현재 청구 내역",
+        "boundaryLabel": "청구 내역",
+        "empty": "아직 활성화된 모듈이 없습니다 — 회사 마켓플레이스에서 활성화해 주세요.",
+        "table": {
+          "company": "회사",
+          "module": "모듈",
+          "price": "요금",
+          "status": "상태",
+          "total": "합계"
+        },
+        "statusCancelling": "취소 중"
+      }
+    },
+    "invoices": {
+      "pageTitle": "청구서",
+      "pageDescription": "현재까지의 모든 청구 내역과 PDF 다운로드.",
+      "boundaryLabel": "청구서 내역",
+      "empty": "아직 청구서가 없습니다 — 모듈을 활성화하면 첫 번째 청구서가 발행됩니다.",
+      "table": {
+        "number": "청구서 번호",
+        "date": "날짜",
+        "status": "상태",
+        "amount": "금액",
+        "download": "다운로드",
+        "pdf": "PDF"
+      }
+    },
+    "sidebar": {
+      "nav": {
+        "companies": "회사",
+        "billing": "결제",
+        "invoices": "청구서",
+        "settings": "설정"
+      },
+      "languageAriaLabel": "언어"
+    },
+    "organizationSettings": {
+      "pageTitle": "조직 설정",
+      "orgName": {
+        "title": "조직 이름",
+        "description": "청구서 및 모든 모듈에 표시됩니다.",
+        "label": "이름",
+        "placeholder": "조직 이름",
+        "error": "조직 이름을 입력해 주세요.",
+        "save": "이름 저장",
+        "saving": "저장 중…",
+        "saved": "저장되었습니다.",
+        "genericError": "조직 이름을 저장할 수 없었습니다. 다시 시도해 주세요.",
+        "loadError": "조직 이름을 불러올 수 없었습니다. 페이지를 새로고침해 주세요."
+      },
+      "ownerEmail": {
+        "title": "오너 이메일",
+        "description": "현재는 읽기 전용입니다 — 로그인 이메일 변경은 별도 절차가 필요합니다."
+      },
+      "changePassword": {
+        "title": "비밀번호 변경",
+        "current": { "label": "현재 비밀번호", "error": "현재 비밀번호를 입력해 주세요." },
+        "new": { "label": "새 비밀번호", "error": "8자 이상으로 입력해 주세요." },
+        "confirm": { "label": "새 비밀번호 확인" },
+        "mismatchError": "비밀번호가 일치하지 않습니다.",
+        "submit": "비밀번호 변경",
+        "submitting": "변경 중…",
+        "saved": "비밀번호가 변경되었습니다.",
+        "genericError": "비밀번호를 변경할 수 없었습니다. 다시 시도해 주세요.",
+        "incorrectCurrent": "현재 비밀번호가 올바르지 않습니다."
+      }
+    }
+  }
+}

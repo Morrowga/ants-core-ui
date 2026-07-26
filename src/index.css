@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 25% 98.5%;
+    --foreground: 0 1% 17%;             /* #2b2a2a */
+    --card: 0 0% 100%;
+    --card-foreground: 0 1% 17%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 1% 17%;
+    --primary: 28 32% 64%;              /* warm taupe #d8c7b8, darkened for buttons/progress */
+    --primary-foreground: 0 1% 17%;
+    --secondary: 214 28% 94%;
+    --secondary-foreground: 217 44% 20%;
+    --muted: 214 26% 94.5%;
+    --muted-foreground: 217 14% 44%;
+    --accent: 28 40% 94%;
+    --accent-foreground: 28 40% 25%;
+    --destructive: 0 68% 44%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 215 22% 88%;
+    --input: 215 22% 84%;
+    --ring: 28 35% 52%;
+    --radius: 0.5rem;
+    --sidebar: 23 33% 32%;              /* warm brown #6c4b36 -- also drives the login/auth page background */
+    --sidebar-foreground: 23 20% 90%;   /* warm cream */
+    --sidebar-muted: 23 14% 62%;
+    --sidebar-active: 28 40% 65%;       /* taupe active-state highlight */
+  }
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground font-sans antialiased; font-size: 14px; }
+  h1, h2, h3, h4 { @apply font-display tracking-tight; }
+}
+
+@layer utilities {
+  .tabular { font-feature-settings: "tnum"; font-variant-numeric: tabular-nums; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}

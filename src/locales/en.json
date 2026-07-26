@@ -1,0 +1,164 @@
+{
+  "common": {
+    "signOut": "Sign out",
+    "logout": "Log out",
+    "cancel": "Cancel",
+    "close": "Close",
+    "loading": "Loading…"
+  },
+  "marketplace": {
+    "pageTitle": "Apps Marketplace",
+    "pageDescription": "Enable the modules this company needs. Each one is a flat monthly price.",
+    "boundaryLabel": "The apps marketplace",
+    "seeMore": "See more",
+    "enable": "Enable",
+    "enabling": "Enabling…",
+    "finishPayment": "Finish payment",
+    "disable": "Disable",
+    "enter": "Enter",
+    "opening": "Opening…",
+    "renews": "Renews {{date}}",
+    "ends": "Ends {{date}}",
+    "status": {
+      "notEnabled": "Not enabled",
+      "active": "Active",
+      "trialing": "Trialing",
+      "incomplete": "Incomplete payment",
+      "cancelling": "Cancelling — active until {{date}}"
+    },
+    "disableDialog": {
+      "title": "Disable {{name}}?",
+      "description": "The module stays active until the end of the current billing period, then turns off — you won't be charged again for it. Your data is kept, and you can re-enable it any time.",
+      "keepOn": "Keep it on",
+      "disableAtPeriodEnd": "Disable at period end",
+      "disabling": "Disabling…"
+    },
+    "dashboardNotConfigured": "This module's dashboard isn't configured yet.",
+    "enableFailed": "Enabling the module didn't go through. Try again.",
+    "disableFailed": "Disabling the module didn't go through. Try again.",
+    "enterFailed": "Couldn't start the handoff to that module. Try again."
+  },
+  "features": {
+    "companies": {
+      "pageTitle": "Companies",
+      "pageDescription": "Each company under your organization, and the modules it runs.",
+      "newCompany": "New company",
+      "boundaryLabel": "Your companies list",
+      "table": {
+        "name": "Name",
+        "industry": "Industry",
+        "timezone": "Timezone",
+        "modulesEnabled": "Modules enabled",
+        "created": "Created",
+        "actions": "Actions",
+        "manageModules": "Manage modules"
+      },
+      "empty": "No companies yet. Create one to start enabling modules."
+    },
+    "createCompany": {
+      "pageTitle": "New company",
+      "pageDescription": "A separate workspace under your organization, with its own modules and billing rows.",
+      "fields": {
+        "name": { "label": "Name", "error": "Enter the company's name." },
+        "industry": { "label": "Industry", "placeholder": "e.g. Retail", "error": "Enter an industry." },
+        "timezone": { "label": "Timezone", "placeholder": "Pick a timezone", "error": "Pick a timezone." },
+        "currency": { "label": "Currency", "placeholder": "USD", "error": "Pick a currency." },
+        "workingHoursStart": { "label": "Working hours start" },
+        "workingHoursEnd": { "label": "Working hours end" },
+        "workdays": { "label": "Workdays", "error": "Pick at least one workday." }
+      },
+      "days": {
+        "mon": "Mon", "tue": "Tue", "wed": "Wed", "thu": "Thu", "fri": "Fri", "sat": "Sat", "sun": "Sun"
+      },
+      "submit": "Create company",
+      "submitting": "Creating…",
+      "genericError": "Couldn't create the company. Check the fields and try again.",
+      "noOrganizationError": "Your session doesn't have an organization on it — try logging in again."
+    },
+    "billing": {
+      "pageTitle": "Billing",
+      "pageDescription": "Your card on file, current module charges, and what you'll pay this period.",
+      "paymentMethod": {
+        "title": "Payment method",
+        "noCard": "No card on file",
+        "update": "Update"
+      },
+      "paymentMethodDialog": {
+        "title": "Add a payment method",
+        "description": "You'll need a card on file before a module can be enabled. Card details are entered securely with Stripe and saved for future module charges.",
+        "cancel": "Cancel",
+        "save": "Save card",
+        "saving": "Saving…",
+        "cardConfirmError": "Couldn't confirm the card. Try again.",
+        "genericError": "Couldn't save that card. Try again."
+      },
+      "currentCharges": {
+        "title": "Current charges",
+        "boundaryLabel": "Your charges",
+        "empty": "No modules are enabled yet — enable one from a company's marketplace.",
+        "table": {
+          "company": "Company",
+          "module": "Module",
+          "price": "Price",
+          "status": "Status",
+          "total": "Total"
+        },
+        "statusCancelling": "Cancelling"
+      }
+    },
+    "invoices": {
+      "pageTitle": "Invoices",
+      "pageDescription": "Every charge to date, with downloadable PDFs.",
+      "boundaryLabel": "Your invoice history",
+      "empty": "No invoices yet — your first one appears after a module is enabled.",
+      "table": {
+        "number": "Invoice #",
+        "date": "Date",
+        "status": "Status",
+        "amount": "Amount",
+        "download": "Download",
+        "pdf": "PDF"
+      }
+    },
+    "sidebar": {
+      "nav": {
+        "companies": "Companies",
+        "billing": "Billing",
+        "invoices": "Invoices",
+        "settings": "Settings"
+      },
+      "languageAriaLabel": "Language"
+    },
+    "organizationSettings": {
+      "pageTitle": "Organization settings",
+      "orgName": {
+        "title": "Organization name",
+        "description": "Shown on invoices and across every module.",
+        "label": "Name",
+        "placeholder": "Your organization",
+        "error": "Enter the organization's name.",
+        "save": "Save name",
+        "saving": "Saving…",
+        "saved": "Saved.",
+        "genericError": "Couldn't save the organization name. Try again.",
+        "loadError": "Couldn't load the organization name. Try refreshing the page."
+      },
+      "ownerEmail": {
+        "title": "Owner email",
+        "description": "Read-only for now — changing your login email is a bigger, separate flow."
+      },
+      "changePassword": {
+        "title": "Change password",
+        "current": { "label": "Current password", "error": "Enter your current password." },
+        "new": { "label": "New password", "error": "Use at least 8 characters." },
+        "confirm": { "label": "Confirm new password" },
+        "mismatchError": "Passwords don't match.",
+        "submit": "Change password",
+        "submitting": "Changing…",
+        "saved": "Password changed.",
+        "genericError": "Couldn't change the password. Try again.",
+        "incorrectCurrent": "Current password incorrect."
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+# Dependencies
+node_modules
+
+# Build output
+dist
+*.tsbuildinfo
+
+# Env files -- covers ALL Vite env variants, not just plain .env.
+# The original (.env + *.local) missed .env.production/.env.development,
+# which don't match either pattern.
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+.env.test
+
+# Yarn (Classic cache + Berry PnP artifacts -- harmless if you're on
+# Classic and never touch Berry, but safe to have either way)
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor / OS
+.vscode
+.idea
+.DS_Store
+*.local
+
+# Test coverage
+coverage
