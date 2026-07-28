@@ -159,6 +159,136 @@
         "genericError": "Couldn't change the password. Try again.",
         "incorrectCurrent": "Current password incorrect."
       }
+    },
+    "landing": {
+      "hero": {
+        "headline": "One platform. Every module your business runs on.",
+        "actions": {
+          "home": "Home",
+          "login": "Login",
+          "register": "Register",
+          "pricing": "Pricing",
+          "support": "Support ticket",
+          "contact": "Contact"
+        },
+        "changeLanguage": "Change language",
+        "scrollDown": "Scroll down",
+        "featureCards": [
+          "I got in 10 minutes late today — traffic was rough.",
+          "Feeling a bit sick, requesting today off.",
+          "Need to log overtime tonight to hit the deadline.",
+          "Only slept 5 hours last night.",
+          "Can someone check out this issue I'm having? Please help.",
+          "Just got recognized by my manager — feels good.",
+          "Shared something useful with the whole team just now.",
+          "Requesting to update my check-in location.",
+          "Working from a client site today, not my desk.",
+          "Taking a quick break, back in 10.",
+          "Submitted today's report — worked on the Q3 launch.",
+          "Yep, still here — just stepped away for a sec.",
+          "Just got my certificate for this month!",
+          "Checking my hours for this pay period.",
+          "Assigned to a new project — logging hours as I go."
+        ]
+      },
+      "pricing": {
+        "title": "Our Pricing",
+        "description": "Every module is one flat monthly price — no tiers, no seat math. Turn a module on when you need it, off when you don't.",
+        "boundaryLabel": "Pricing",
+        "comingSoonBadge": "Coming soon",
+        "learnMore": "Learn more",
+        "pricingNotSetYet": "Pricing not set yet",
+        "registerInterest": "Register interest",
+        "getStarted": "Get started",
+        "close": "Close",
+        "comingSoonModules": {
+          "pos": {
+            "name": "POS",
+            "description": "Point of sale, built for the same one-flat-price model as everything else, syncing directly with your other modules."
+          },
+          "aiOcr": {
+            "name": "AI OCR",
+            "description": "Automatic document and receipt capture, feeding straight into your other modules without manual data entry."
+          }
+        }
+      },
+      "services": {
+        "title": "Our Services",
+        "names": {
+          "hr": "HR & Attendance",
+          "warehouse": "Warehouse",
+          "pos": "POS",
+          "aiOcr": "AI OCR"
+        },
+        "bullets": [
+          "Flat monthly pricing, no tiers, no seat limits",
+          "Works alongside every other module on one account",
+          "Real-time data, always in sync across your team",
+          "Built for teams of any size, from day one"
+        ]
+      },
+      "support": {
+        "title": "We're here when something breaks",
+        "description": "Stuck on setup, billing, or a module that isn't behaving? Send a ticket and the ANTS team will get back to you by email — usually within one business day.",
+        "formTitle": "Submit a ticket",
+        "subjectLabel": "Subject",
+        "subjectPlaceholder": "e.g. Can't enable the HR module",
+        "subjectError": "Give the ticket a short subject.",
+        "messageLabel": "Message",
+        "messagePlaceholder": "What happened, and what did you expect?",
+        "messageError": "Describe the problem in a sentence or two.",
+        "submit": "Send ticket",
+        "successTitle": "Ticket received.",
+        "successBody": "We'll reply by email. (Placeholder success state — support tickets aren't wired to a backend yet.)"
+      },
+      "contact": {
+        "title": "Contact us",
+        "description": "Questions about pricing, a module you wish existed, or rolling ANTS out across teams — write to us and we'll reply by email.",
+        "nameLabel": "Name",
+        "namePlaceholder": "Your name",
+        "nameError": "Tell us your name.",
+        "emailLabel": "Email",
+        "emailPlaceholder": "you@company.com",
+        "emailError": "Enter a valid email address.",
+        "messageLabel": "Message",
+        "messagePlaceholder": "What would you like to know?",
+        "messageError": "Write at least a sentence.",
+        "submit": "Send message",
+        "successTitle": "Message received.",
+        "successBody": "We'll get back to you soon. (Placeholder success state — the contact form isn't wired to a backend yet.)"
+      },
+      "authLayout": {
+        "homeLink": "Home"
+      },
+      "login": {
+        "title": "Log in",
+        "emailLabel": "Email",
+        "emailError": "Enter a valid email address.",
+        "passwordLabel": "Password",
+        "passwordError": "Enter your password.",
+        "submit": "Log in",
+        "submitting": "Logging in…",
+        "serverError": "That email and password didn't match. Try again.",
+        "newToAnts": "New to ANTS?",
+        "registerLink": "Register"
+      },
+      "register": {
+        "title": "Create your ANTS account",
+        "orgNameLabel": "Organization name",
+        "orgNamePlaceholder": "Acme Holdings",
+        "orgNameHelp": "This is your account -- you'll create your first company next.",
+        "orgNameError": "Enter your organization's name.",
+        "fullNameLabel": "Your name (optional)",
+        "emailLabel": "Email",
+        "emailError": "Enter a valid email address.",
+        "passwordLabel": "Password",
+        "passwordError": "Use at least 8 characters.",
+        "submit": "Create account",
+        "submitting": "Creating account…",
+        "serverError": "Registration didn't go through. Check the fields and try again.",
+        "alreadyRegistered": "Already registered?",
+        "loginLink": "Log in"
+      }
     }
   }
 }

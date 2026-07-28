@@ -159,6 +159,136 @@
         "genericError": "无法修改密码，请重试。",
         "incorrectCurrent": "当前密码不正确。"
       }
+    },
+    "landing": {
+      "hero": {
+        "headline": "一个平台，驱动您业务的每一个模块。",
+        "actions": {
+          "home": "首页",
+          "login": "登录",
+          "register": "注册",
+          "pricing": "价格",
+          "support": "提交工单",
+          "contact": "联系我们"
+        },
+        "changeLanguage": "切换语言",
+        "scrollDown": "向下滚动",
+        "featureCards": [
+          "今天迟到了10分钟，路上堵车比较严重。",
+          "身体有点不舒服，申请今天请假。",
+          "为了赶上截止日期，今晚需要记录加班时间。",
+          "昨晚只睡了5个小时。",
+          "我遇到了一个问题，有人能帮我看看吗？",
+          "被经理表扬了，感觉很好。",
+          "刚刚向整个团队分享了一些有用的内容。",
+          "申请更新我的签到地点。",
+          "今天在客户现场办公，不在自己的座位上。",
+          "稍微休息一下，10分钟后回来。",
+          "今天的报告已提交，主要处理了Q3上线的工作。",
+          "我还在的，只是暂时离开了一下。",
+          "刚拿到这个月的结业证书！",
+          "正在查看本薪资周期的工时记录。",
+          "被分配到一个新项目，边工作边记录工时。"
+        ]
+      },
+      "pricing": {
+        "title": "价格方案",
+        "description": "每个模块均为固定月费，无分级计划，无席位计算。需要时开启，不需要时关闭。",
+        "boundaryLabel": "价格",
+        "comingSoonBadge": "即将推出",
+        "learnMore": "了解更多",
+        "pricingNotSetYet": "价格暂未设定",
+        "registerInterest": "登记意向",
+        "getStarted": "立即开始",
+        "close": "关闭",
+        "comingSoonModules": {
+          "pos": {
+            "name": "POS",
+            "description": "采用与其他模块相同的固定月费模式构建的销售点系统，可直接与其他模块同步。"
+          },
+          "aiOcr": {
+            "name": "AI OCR",
+            "description": "自动捕获文件和收据，无需手动录入，直接输送至其他模块。"
+          }
+        }
+      },
+      "services": {
+        "title": "我们的服务",
+        "names": {
+          "hr": "人事与考勤",
+          "warehouse": "仓库管理",
+          "pos": "POS",
+          "aiOcr": "AI OCR"
+        },
+        "bullets": [
+          "固定月费，无分级，无席位限制",
+          "在同一账户下与所有其他模块协同运行",
+          "实时数据，团队全员始终保持同步",
+          "从第一天起，适配任意规模的团队"
+        ]
+      },
+      "support": {
+        "title": "遇到问题，我们随时在线",
+        "description": "在设置、账单或某个模块出现异常时遇到了麻烦？提交工单后，ANTS 团队将通过邮件回复您，通常在一个工作日内响应。",
+        "formTitle": "提交工单",
+        "subjectLabel": "主题",
+        "subjectPlaceholder": "例如：无法启用 HR 模块",
+        "subjectError": "请为工单填写一个简短的主题。",
+        "messageLabel": "描述",
+        "messagePlaceholder": "发生了什么？您期望的结果是什么？",
+        "messageError": "请用一两句话描述问题。",
+        "submit": "发送工单",
+        "successTitle": "工单已收到。",
+        "successBody": "我们将通过邮件回复您。（当前为占位成功状态——支持工单尚未连接后端。）"
+      },
+      "contact": {
+        "title": "联系我们",
+        "description": "关于价格的疑问、希望新增的模块，或在团队中推广 ANTS——给我们留言，我们将通过邮件回复您。",
+        "nameLabel": "姓名",
+        "namePlaceholder": "您的姓名",
+        "nameError": "请填写您的姓名。",
+        "emailLabel": "邮箱",
+        "emailPlaceholder": "you@company.com",
+        "emailError": "请输入有效的邮箱地址。",
+        "messageLabel": "留言",
+        "messagePlaceholder": "您想了解什么？",
+        "messageError": "请至少写一句话。",
+        "submit": "发送消息",
+        "successTitle": "消息已收到。",
+        "successBody": "我们会尽快回复您。（当前为占位成功状态——联系表单尚未连接后端。）"
+      },
+      "authLayout": {
+        "homeLink": "首页"
+      },
+      "login": {
+        "title": "登录",
+        "emailLabel": "邮箱",
+        "emailError": "请输入有效的邮箱地址。",
+        "passwordLabel": "密码",
+        "passwordError": "请输入您的密码。",
+        "submit": "登录",
+        "submitting": "登录中…",
+        "serverError": "邮箱或密码不匹配，请重试。",
+        "newToAnts": "还没有 ANTS 账号？",
+        "registerLink": "注册"
+      },
+      "register": {
+        "title": "创建您的 ANTS 账号",
+        "orgNameLabel": "组织名称",
+        "orgNamePlaceholder": "Acme Holdings",
+        "orgNameHelp": "这是您的账号，您将在下一步创建第一家公司。",
+        "orgNameError": "请输入组织名称。",
+        "fullNameLabel": "您的姓名（可选）",
+        "emailLabel": "邮箱",
+        "emailError": "请输入有效的邮箱地址。",
+        "passwordLabel": "密码",
+        "passwordError": "请使用至少 8 位字符。",
+        "submit": "创建账号",
+        "submitting": "创建中…",
+        "serverError": "注册未成功，请检查填写内容后重试。",
+        "alreadyRegistered": "已有账号？",
+        "loginLink": "登录"
+      }
     }
   }
 }

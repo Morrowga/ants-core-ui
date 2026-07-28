@@ -32,6 +32,21 @@
   * { @apply border-border; }
   body { @apply bg-background text-foreground font-sans antialiased; font-size: 14px; }
   h1, h2, h3, h4 { @apply font-display tracking-tight; }
+
+  /* Scrollbar hidden visually -- scrolling itself (wheel, trackpad,
+     keyboard, drag) is completely unaffected by this; only the visible
+     track/thumb UI is removed. All three because no single property
+     covers every browser: WebKit (Chrome/Safari/Edge) needs the
+     pseudo-element rule, Firefox needs scrollbar-width, older
+     IE/Edge needs -ms-overflow-style. */
+  html {
+    scroll-behavior: smooth;     /* smooth in-page anchor navigation (#pricing, #support, #contact) */
+    scrollbar-width: none;       /* Firefox */
+    -ms-overflow-style: none;    /* IE / legacy Edge */
+  }
+  html::-webkit-scrollbar {      /* Chrome, Safari, new Edge */
+    display: none;
+  }
 }
 
 @layer utilities {

@@ -1,14 +1,22 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AxiosError } from "axios";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useAuth } from "@/lib/auth";
 import { AuthLayout } from "./AuthLayout";
+
+type RegisterForm = {
+  organization_name: string;
+  owner_email: string;
+  owner_password: string;
+  owner_full_name?: string;
+};
 
 /** Registration now creates ONLY the Organization + its owner_admin user --
  *  no Company gets created here anymore (that used to happen automatically,
@@ -21,22 +29,36 @@ import { AuthLayout } from "./AuthLayout";
  *  this step, so asking for them here would be misleading. Backend still
  *  accepts them on CompanyRegisterRequest for compatibility, but this form
  *  no longer sends them. */
-const registerSchema = z.object({
-  organization_name: z.string().min(2, "Enter your organization's name."),
-  owner_email: z.string().email("Enter a valid email address."),
-  owner_password: z.string().min(8, "Use at least 8 characters."),
-  owner_full_name: z.string().optional(),
-});
-
-type RegisterForm = z.infer<typeof registerSchema>;
-
 export function RegisterPage() {
-  const { register: registerAccount } = useAuth();
+  const { t } = useTranslation();
+  const { register: registerAccount, claims } = useAuth();
   const navigate = useNavigate();
   const [serverError, setServerError] = useState<string | null>(null);
+
+  // Built here, not as a module-level constant, so the error messages
+  // inside it are translated -- zod schemas can't call t() themselves.
+  const registerSchema = useMemo(
+    () =>
+      z.object({
+        organization_name: z.string().min(2, t("features.landing.register.orgNameError")),
+        owner_email: z.string().email(t("features.landing.register.emailError")),
+        owner_password: z.string().min(8, t("features.landing.register.passwordError")),
+        owner_full_name: z.string().optional(),
+      }),
+    [t],
+  );
+
   const form = useForm<RegisterForm>({
     resolver: zodResolver(registerSchema),
   });
+
+  // Already signed in -- registering again makes no sense; send them
+  // straight to their real home instead of showing this form at all.
+  // Checked at render time (not a useEffect) so there's no flash of the
+  // form before redirecting.
+  if (claims) {
+    return <Navigate to="/companies" replace />;
+  }
 
   const onSubmit = async (values: RegisterForm) => {
     setServerError(null);
@@ -58,22 +80,22 @@ export function RegisterPage() {
         error instanceof AxiosError
           ? (error.response?.data as { detail?: string } | undefined)?.detail
           : undefined;
-      setServerError(detail ?? "Registration didn't go through. Check the fields and try again.");
+      setServerError(detail ?? t("features.landing.register.serverError"));
     }
   };
 
   return (
-    <AuthLayout title="Create your ANTS account">
+    <AuthLayout title={t("features.landing.register.title")}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4" noValidate>
         <div className="space-y-1.5">
-          <Label htmlFor="organization_name">Organization name</Label>
+          <Label htmlFor="organization_name">{t("features.landing.register.orgNameLabel")}</Label>
           <Input
             id="organization_name"
-            placeholder="Acme Holdings"
+            placeholder={t("features.landing.register.orgNamePlaceholder")}
             {...form.register("organization_name")}
           />
           <p className="text-xs text-muted-foreground">
-            This is your account -- you'll create your first company next.
+            {t("features.landing.register.orgNameHelp")}
           </p>
           {form.formState.errors.organization_name && (
             <p className="text-xs text-destructive">
@@ -83,12 +105,12 @@ export function RegisterPage() {
         </div>
 
         <div className="space-y-1.5">
-          <Label htmlFor="owner_full_name">Your name (optional)</Label>
+          <Label htmlFor="owner_full_name">{t("features.landing.register.fullNameLabel")}</Label>
           <Input id="owner_full_name" autoComplete="name" {...form.register("owner_full_name")} />
         </div>
 
         <div className="space-y-1.5">
-          <Label htmlFor="owner_email">Email</Label>
+          <Label htmlFor="owner_email">{t("features.landing.register.emailLabel")}</Label>
           <Input
             id="owner_email"
             type="email"
@@ -101,7 +123,7 @@ export function RegisterPage() {
         </div>
 
         <div className="space-y-1.5">
-          <Label htmlFor="owner_password">Password</Label>
+          <Label htmlFor="owner_password">{t("features.landing.register.passwordLabel")}</Label>
           <Input
             id="owner_password"
             type="password"
@@ -120,14 +142,16 @@ export function RegisterPage() {
         )}
 
         <Button type="submit" className="w-full" disabled={form.formState.isSubmitting}>
-          {form.formState.isSubmitting ? "Creating account…" : "Create account"}
+          {form.formState.isSubmitting
+            ? t("features.landing.register.submitting")
+            : t("features.landing.register.submit")}
         </Button>
       </form>
 
       <p className="mt-4 text-center text-sm text-muted-foreground">
-        Already registered?{" "}
+        {t("features.landing.register.alreadyRegistered")}{" "}
         <Link to="/login" className="font-medium text-foreground underline-offset-4 hover:underline">
-          Log in
+          {t("features.landing.register.loginLink")}
         </Link>
       </p>
     </AuthLayout>

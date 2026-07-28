@@ -1,8 +1,9 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AxiosError } from "axios";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,25 +11,46 @@ import { Label } from "@/components/ui/label";
 import { getCompanies } from "@/lib/api";
 import { useAuth } from "@/lib/auth";
 import { AuthLayout } from "./AuthLayout";
+import { markJustLoggedIn } from "./WelcomeDialog";
 
-const loginSchema = z.object({
-  email: z.string().email("Enter a valid email address."),
-  password: z.string().min(1, "Enter your password."),
-});
-
-type LoginForm = z.infer<typeof loginSchema>;
+type LoginForm = {
+  email: string;
+  password: string;
+};
 
 export function LoginPage() {
-  const { login } = useAuth();
+  const { t } = useTranslation();
+  const { login, claims } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const [serverError, setServerError] = useState<string | null>(null);
+
+  // Built here, not as a module-level constant, so the error messages
+  // inside it are translated -- zod schemas can't call t() themselves.
+  const loginSchema = useMemo(
+    () =>
+      z.object({
+        email: z.string().email(t("features.landing.login.emailError")),
+        password: z.string().min(1, t("features.landing.login.passwordError")),
+      }),
+    [t],
+  );
+
   const form = useForm<LoginForm>({ resolver: zodResolver(loginSchema) });
+
+  // Already signed in -- landing on the login form again makes no
+  // sense; send them straight to their real home instead. Checked at
+  // render time (not a useEffect) so there's no flash of the form
+  // before redirecting.
+  if (claims) {
+    return <Navigate to="/companies" replace />;
+  }
 
   const onSubmit = async (values: LoginForm) => {
     setServerError(null);
     try {
       await login(values.email, values.password);
+      markJustLoggedIn();
 
       // If they were bounced here from a protected page, go back there.
       const from = (location.state as { from?: string } | null)?.from;
@@ -54,22 +76,22 @@ export function LoginPage() {
         error instanceof AxiosError
           ? (error.response?.data as { detail?: string } | undefined)?.detail
           : undefined;
-      setServerError(detail ?? "That email and password didn't match. Try again.");
+      setServerError(detail ?? t("features.landing.login.serverError"));
     }
   };
 
   return (
-    <AuthLayout title="Log in">
+    <AuthLayout title={t("features.landing.login.title")}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4" noValidate>
         <div className="space-y-1.5">
-          <Label htmlFor="email">Email</Label>
+          <Label htmlFor="email">{t("features.landing.login.emailLabel")}</Label>
           <Input id="email" type="email" autoComplete="email" {...form.register("email")} />
           {form.formState.errors.email && (
             <p className="text-xs text-destructive">{form.formState.errors.email.message}</p>
           )}
         </div>
         <div className="space-y-1.5">
-          <Label htmlFor="password">Password</Label>
+          <Label htmlFor="password">{t("features.landing.login.passwordLabel")}</Label>
           <Input
             id="password"
             type="password"
@@ -86,14 +108,16 @@ export function LoginPage() {
         )}
 
         <Button type="submit" className="w-full" disabled={form.formState.isSubmitting}>
-          {form.formState.isSubmitting ? "Logging in…" : "Log in"}
+          {form.formState.isSubmitting
+            ? t("features.landing.login.submitting")
+            : t("features.landing.login.submit")}
         </Button>
       </form>
 
       <p className="mt-4 text-center text-sm text-muted-foreground">
-        New to ANTS?{" "}
+        {t("features.landing.login.newToAnts")}{" "}
         <Link to="/register" className="font-medium text-foreground underline-offset-4 hover:underline">
-          Register
+          {t("features.landing.login.registerLink")}
         </Link>
       </p>
     </AuthLayout>

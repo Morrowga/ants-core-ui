@@ -159,6 +159,136 @@
         "genericError": "비밀번호를 변경할 수 없었습니다. 다시 시도해 주세요.",
         "incorrectCurrent": "현재 비밀번호가 올바르지 않습니다."
       }
+    },
+     "landing": {
+      "hero": {
+        "headline": "하나의 플랫폼으로, 비즈니스의 모든 것을 실행하세요.",
+        "actions": {
+          "home": "홈",
+          "login": "로그인",
+          "register": "회원가입",
+          "pricing": "요금제",
+          "support": "지원 티켓",
+          "contact": "문의하기"
+        },
+        "changeLanguage": "언어 변경",
+        "scrollDown": "아래로 스크롤",
+        "featureCards": [
+          "오늘 10분 늦게 출근했어요. 교통이 너무 막혔어요.",
+          "몸이 좀 안 좋아서 오늘 휴가를 신청합니다.",
+          "마감을 맞추려면 오늘 밤 초과 근무를 기록해야 해요.",
+          "어젯밤에 5시간밖에 못 잤어요.",
+          "문제가 생겼는데 확인해 주실 수 있나요? 도와주세요.",
+          "매니저에게 인정받았어요. 기분이 좋네요.",
+          "방금 팀 전체에 유용한 정보를 공유했어요.",
+          "체크인 위치 업데이트를 요청합니다.",
+          "오늘은 자리가 아닌 고객사에서 근무 중입니다.",
+          "잠깐 쉬고 있어요. 10분 후에 돌아올게요.",
+          "오늘 보고서를 제출했어요. Q3 출시 작업을 했습니다.",
+          "아직 여기 있어요. 잠깐 자리를 비웠을 뿐이에요.",
+          "이번 달 수료증을 받았어요!",
+          "이번 급여 기간의 근무 시간을 확인하고 있어요.",
+          "새 프로젝트에 배정됐어요. 작업하면서 시간을 기록하고 있어요."
+        ]
+      },
+      "pricing": {
+        "title": "요금 안내",
+        "description": "모든 모듈은 월정액 단일 요금입니다. 단계별 요금제도, 좌석 수 계산도 없습니다. 필요할 때 켜고, 필요 없을 때 끄세요.",
+        "boundaryLabel": "요금",
+        "comingSoonBadge": "출시 예정",
+        "learnMore": "자세히 보기",
+        "pricingNotSetYet": "요금 미정",
+        "registerInterest": "관심 등록",
+        "getStarted": "시작하기",
+        "close": "닫기",
+        "comingSoonModules": {
+          "pos": {
+            "name": "POS",
+            "description": "다른 모든 모듈과 동일한 단일 요금제로 구축된 POS 시스템으로, 다른 모듈과 직접 연동됩니다."
+          },
+          "aiOcr": {
+            "name": "AI OCR",
+            "description": "문서와 영수증을 자동으로 캡처하여 수동 입력 없이 다른 모듈로 바로 전달합니다."
+          }
+        }
+      },
+      "services": {
+        "title": "서비스 소개",
+        "names": {
+          "hr": "HR · 근태 관리",
+          "warehouse": "창고 관리",
+          "pos": "POS",
+          "aiOcr": "AI OCR"
+        },
+        "bullets": [
+          "월정액 단일 요금, 단계별 요금제 없음, 좌석 제한 없음",
+          "하나의 계정에서 모든 모듈과 함께 작동",
+          "실시간 데이터, 팀 전체에서 항상 동기화",
+          "처음부터 모든 규모의 팀을 위해 설계"
+        ]
+      },
+      "support": {
+        "title": "문제가 생기면 저희가 있습니다",
+        "description": "설정, 결제, 또는 제대로 작동하지 않는 모듈 때문에 막히셨나요? 티켓을 보내주시면 ANTS 팀이 이메일로 답변드립니다 — 보통 영업일 기준 하루 이내에 회신합니다.",
+        "formTitle": "티켓 제출",
+        "subjectLabel": "제목",
+        "subjectPlaceholder": "예: HR 모듈을 활성화할 수 없어요",
+        "subjectError": "티켓 제목을 간단히 입력해 주세요.",
+        "messageLabel": "메시지",
+        "messagePlaceholder": "어떤 일이 있었나요? 어떻게 되기를 기대했나요?",
+        "messageError": "문제를 한두 문장으로 설명해 주세요.",
+        "submit": "티켓 보내기",
+        "successTitle": "티켓이 접수되었습니다.",
+        "successBody": "이메일로 답변드리겠습니다. (임시 성공 상태입니다 — 지원 티켓이 아직 백엔드에 연결되지 않았습니다.)"
+      },
+      "contact": {
+        "title": "문의하기",
+        "description": "요금에 관한 질문, 있었으면 하는 모듈, 또는 팀 전체에 ANTS를 도입하는 것에 대해 — 메시지를 보내주시면 이메일로 답변드립니다.",
+        "nameLabel": "이름",
+        "namePlaceholder": "이름을 입력하세요",
+        "nameError": "이름을 입력해 주세요.",
+        "emailLabel": "이메일",
+        "emailPlaceholder": "you@company.com",
+        "emailError": "유효한 이메일 주소를 입력해 주세요.",
+        "messageLabel": "메시지",
+        "messagePlaceholder": "무엇이 궁금하신가요?",
+        "messageError": "최소 한 문장 이상 작성해 주세요.",
+        "submit": "메시지 보내기",
+        "successTitle": "메시지가 접수되었습니다.",
+        "successBody": "곧 답변드리겠습니다. (임시 성공 상태입니다 — 문의 양식이 아직 백엔드에 연결되지 않았습니다.)"
+      },
+      "authLayout": {
+        "homeLink": "홈"
+      },
+      "login": {
+        "title": "로그인",
+        "emailLabel": "이메일",
+        "emailError": "유효한 이메일 주소를 입력해 주세요.",
+        "passwordLabel": "비밀번호",
+        "passwordError": "비밀번호를 입력해 주세요.",
+        "submit": "로그인",
+        "submitting": "로그인 중…",
+        "serverError": "이메일 또는 비밀번호가 일치하지 않습니다. 다시 시도해 주세요.",
+        "newToAnts": "ANTS가 처음이신가요?",
+        "registerLink": "회원가입"
+      },
+      "register": {
+        "title": "ANTS 계정 만들기",
+        "orgNameLabel": "조직명",
+        "orgNamePlaceholder": "Acme Holdings",
+        "orgNameHelp": "이것은 회원님의 계정입니다. 첫 번째 회사는 다음 단계에서 만들게 됩니다.",
+        "orgNameError": "조직 이름을 입력해 주세요.",
+        "fullNameLabel": "이름 (선택)",
+        "emailLabel": "이메일",
+        "emailError": "유효한 이메일 주소를 입력해 주세요.",
+        "passwordLabel": "비밀번호",
+        "passwordError": "8자 이상 입력해 주세요.",
+        "submit": "계정 만들기",
+        "submitting": "계정 생성 중…",
+        "serverError": "등록에 실패했습니다. 입력 내용을 확인하고 다시 시도해 주세요.",
+        "alreadyRegistered": "이미 계정이 있으신가요?",
+        "loginLink": "로그인"
+      }
     }
   }
 }

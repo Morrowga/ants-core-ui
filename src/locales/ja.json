@@ -159,6 +159,136 @@
         "genericError": "パスワードを変更できませんでした。もう一度お試しください。",
         "incorrectCurrent": "現在のパスワードが正しくありません。"
       }
+    },
+    "landing": {
+      "hero": {
+        "headline": "ひとつのプラットフォームで、ビジネスのすべてを動かす。",
+        "actions": {
+          "home": "ホーム",
+          "login": "ログイン",
+          "register": "登録",
+          "pricing": "料金",
+          "support": "サポートチケット",
+          "contact": "お問い合わせ"
+        },
+        "changeLanguage": "言語を変更",
+        "scrollDown": "スクロールして見る",
+        "featureCards": [
+          "今日は10分遅刻しました。渋滞がひどかったです。",
+          "少し体調が悪いので、今日は休みを申請します。",
+          "締め切りに間に合わせるため、今夜残業を記録する必要があります。",
+          "昨夜は5時間しか眠れませんでした。",
+          "問題が発生しています。確認していただけますか？",
+          "マネージャーに認めてもらいました。嬉しいです。",
+          "今、チーム全体に役立つ情報を共有しました。",
+          "チェックインの場所を更新するよう申請します。",
+          "今日はデスクではなく、クライアント先で作業しています。",
+          "少し休憩します。10分で戻ります。",
+          "今日のレポートを提出しました。Q3ローンチに取り組みました。",
+          "まだいます。ちょっと席を外していただけでした。",
+          "今月の修了証明書を受け取りました！",
+          "今の給与期間の勤務時間を確認しています。",
+          "新しいプロジェクトにアサインされました。作業しながら時間を記録しています。"
+        ]
+      },
+      "pricing": {
+        "title": "料金プラン",
+        "description": "すべてのモジュールは月額一律料金です。段階制なし、席数計算なし。必要なときにオンにして、不要なときはオフにするだけ。",
+        "boundaryLabel": "料金",
+        "comingSoonBadge": "近日公開",
+        "learnMore": "詳しく見る",
+        "pricingNotSetYet": "料金未定",
+        "registerInterest": "興味を登録する",
+        "getStarted": "始める",
+        "close": "閉じる",
+        "comingSoonModules": {
+          "pos": {
+            "name": "POS",
+            "description": "他のすべてと同じ月額一律モデルで構築されたPOSシステム。他のモジュールと直接同期します。"
+          },
+          "aiOcr": {
+            "name": "AI OCR",
+            "description": "書類やレシートを自動キャプチャし、手動入力なしで他のモジュールに直接連携します。"
+          }
+        }
+      },
+      "services": {
+        "title": "サービス一覧",
+        "names": {
+          "hr": "HR・勤怠管理",
+          "warehouse": "倉庫管理",
+          "pos": "POS",
+          "aiOcr": "AI OCR"
+        },
+        "bullets": [
+          "月額一律料金、段階制なし、席数制限なし",
+          "同一アカウントで他のすべてのモジュールと連携",
+          "リアルタイムデータ、チーム全体で常に同期",
+          "初日から、あらゆる規模のチームに対応"
+        ]
+      },
+      "support": {
+        "title": "問題が起きたときは、私たちがいます",
+        "description": "セットアップ、請求、または正常に動作しないモジュールで困っていますか？チケットを送信していただければ、ANTSチームがメールでご返信します。通常1営業日以内にお返事します。",
+        "formTitle": "チケットを送信",
+        "subjectLabel": "件名",
+        "subjectPlaceholder": "例：HRモジュールを有効にできない",
+        "subjectError": "チケットの件名を簡単に入力してください。",
+        "messageLabel": "メッセージ",
+        "messagePlaceholder": "何が起きましたか？どうなることを期待していましたか？",
+        "messageError": "問題を1〜2文で説明してください。",
+        "submit": "チケットを送信",
+        "successTitle": "チケットを受け付けました。",
+        "successBody": "メールにてご返信します。（仮の成功状態です。サポートチケットはまだバックエンドに接続されていません。）"
+      },
+      "contact": {
+        "title": "お問い合わせ",
+        "description": "料金についての質問、あったらいいと思うモジュール、またはチーム全体へのANTS導入について — お気軽にご連絡ください。メールにてご返信します。",
+        "nameLabel": "お名前",
+        "namePlaceholder": "お名前を入力",
+        "nameError": "お名前を入力してください。",
+        "emailLabel": "メールアドレス",
+        "emailPlaceholder": "you@company.com",
+        "emailError": "有効なメールアドレスを入力してください。",
+        "messageLabel": "メッセージ",
+        "messagePlaceholder": "何でもお気軽にどうぞ。",
+        "messageError": "1文以上入力してください。",
+        "submit": "メッセージを送信",
+        "successTitle": "メッセージを受け付けました。",
+        "successBody": "近日中にご返信します。（仮の成功状態です。お問い合わせフォームはまだバックエンドに接続されていません。）"
+      },
+      "authLayout": {
+        "homeLink": "ホーム"
+      },
+      "login": {
+        "title": "ログイン",
+        "emailLabel": "メールアドレス",
+        "emailError": "有効なメールアドレスを入力してください。",
+        "passwordLabel": "パスワード",
+        "passwordError": "パスワードを入力してください。",
+        "submit": "ログイン",
+        "submitting": "ログイン中…",
+        "serverError": "メールアドレスまたはパスワードが一致しません。もう一度お試しください。",
+        "newToAnts": "ANTSは初めてですか？",
+        "registerLink": "登録する"
+      },
+      "register": {
+        "title": "ANTSアカウントを作成",
+        "orgNameLabel": "組織名",
+        "orgNamePlaceholder": "例：Acme Holdings",
+        "orgNameHelp": "これはあなたのアカウントです。最初の会社は次のステップで作成します。",
+        "orgNameError": "組織名を入力してください。",
+        "fullNameLabel": "お名前（任意）",
+        "emailLabel": "メールアドレス",
+        "emailError": "有効なメールアドレスを入力してください。",
+        "passwordLabel": "パスワード",
+        "passwordError": "8文字以上で入力してください。",
+        "submit": "アカウントを作成",
+        "submitting": "作成中…",
+        "serverError": "登録に失敗しました。入力内容を確認してもう一度お試しください。",
+        "alreadyRegistered": "すでに登録済みですか？",
+        "loginLink": "ログイン"
+      }
     }
   }
 }
