@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-
 /** Short black underline shown beneath a section's title, with a
  * looping "typing" dots indicator at its end -- appears one dot at a
  * time (. -> .. -> ...), then resets to nothing and repeats.

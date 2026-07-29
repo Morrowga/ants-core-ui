@@ -14,7 +14,6 @@ interface BrandMarkProps {
 export function BrandMark({
   wordmark = "ANTS",
   className,
-  imgClassName,
   textClassName,
 }: BrandMarkProps) {
   return (
