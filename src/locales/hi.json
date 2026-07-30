@@ -104,7 +104,9 @@
           "status": "स्थिति",
           "total": "कुल"
         },
-        "statusCancelling": "रद्द हो रहा है"
+        "statusCancelling": "रद्द हो रहा है",
+        "statusScheduled": "निर्धारित",
+        "scheduledNote": "पहुंच {{date}} को समाप्त होगी"
       }
     },
     "invoices": {

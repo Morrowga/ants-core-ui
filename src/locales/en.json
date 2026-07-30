@@ -104,7 +104,9 @@
           "status": "Status",
           "total": "Total"
         },
-        "statusCancelling": "Cancelling"
+        "statusCancelling": "Cancelling",
+        "statusScheduled": "Scheduled",
+        "scheduledNote": "Access ends {{date}}"
       }
     },
     "invoices": {

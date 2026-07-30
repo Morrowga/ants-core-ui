@@ -21,7 +21,7 @@ import {
   getMyCompanyModules,
   getPaymentMethod,
 } from "@/lib/api";
-import { formatMonthlyPrice } from "@/lib/utils";
+import { formatDate, formatMonthlyPrice } from "@/lib/utils";
 import { PaymentMethodDialog } from "./PaymentMethodDialog";
 
 export function BillingOverviewPage() {
@@ -43,25 +43,36 @@ export function BillingOverviewPage() {
   );
 
   // Itemized charges: per enabled module across every Company.
+  //
+  // "cancelling" is derived from auto_renew here, not read from m.status
+  // directly -- the backend's disable endpoint only ever flips
+  // auto_renew to false, it never writes a literal "cancelling" string
+  // into status (status stays "active"/"trialing" right up until the
+  // real period end). Checking m.status === "cancelling" would never
+  // match anything; this is the same fix already applied to
+  // ModuleMarketplacePage for the same reason.
   const chargeRows = (companies.data ?? []).flatMap((company) => {
     const rows =
       company.modules ??
       // Single-company orgs: use the "me"-scoped rows as the fallback.
       (companies.data?.length === 1 ? myModules.data ?? [] : []);
     return rows
-      .filter((m) => m.status === "active" || m.status === "trialing" || m.status === "cancelling")
+      .filter((m) => m.status === "active" || m.status === "trialing")
       .map((m) => ({
         companyName: company.name,
         module: priceByKey.get(m.module_key),
         moduleKey: m.module_key,
         status: m.status,
+        isCancelling: m.auto_renew === false,
+        currentPeriodEnd: m.current_period_end,
       }));
   });
 
-  const total = chargeRows.reduce(
-    (sum, row) => sum + (row.status !== "cancelling" ? row.module?.price_monthly_usd ?? 0 : 0),
-    0,
-  );
+  // Still counted in the total -- a module scheduled to end is currently
+  // paid-for and in force for the rest of this period, it just won't
+  // renew. Only the visual status/warning changes, not what's actually
+  // being charged right now.
+  const total = chargeRows.reduce((sum, row) => sum + (row.module?.price_monthly_usd ?? 0), 0);
 
   const isLoading = catalog.isLoading || companies.isLoading;
   const isError = catalog.isError || companies.isError;
@@ -137,11 +148,20 @@ export function BillingOverviewPage() {
                           {row.module ? formatMonthlyPrice(row.module.price_monthly_usd) : "—"}
                         </TableCell>
                         <TableCell>
-                          <Badge variant={row.status === "cancelling" ? "secondary" : "default"}>
-                            {row.status === "cancelling"
-                              ? t("features.billing.currentCharges.statusCancelling")
+                          <Badge variant={row.isCancelling ? "secondary" : "default"}>
+                            {row.isCancelling
+                              ? t("features.billing.currentCharges.statusScheduled")
                               : t(`marketplace.status.${row.status}`, { defaultValue: row.status })}
                           </Badge>
+                          {/* Warning note -- only shown for rows actually
+                              scheduled to end, not every row. */}
+                          {row.isCancelling && row.currentPeriodEnd && (
+                            <p className="mt-1 text-xs text-muted-foreground">
+                              {t("features.billing.currentCharges.scheduledNote", {
+                                date: formatDate(row.currentPeriodEnd),
+                              })}
+                            </p>
+                          )}
                         </TableCell>
                       </TableRow>
                     ))}

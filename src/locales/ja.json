@@ -104,7 +104,9 @@
           "status": "ステータス",
           "total": "合計"
         },
-        "statusCancelling": "キャンセル中"
+        "statusCancelling": "キャンセル中",
+        "statusScheduled": "予定済み",
+        "scheduledNote": "アクセスは{{date}}に終了します"
       }
     },
     "invoices": {

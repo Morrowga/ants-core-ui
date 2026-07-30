@@ -104,7 +104,9 @@
           "status": "状态",
           "total": "合计"
         },
-        "statusCancelling": "取消中"
+        "statusCancelling": "取消中",
+        "statusScheduled": "已计划",
+        "scheduledNote": "访问将于{{date}}结束"
       }
     },
     "invoices": {

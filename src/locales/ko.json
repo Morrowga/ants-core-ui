@@ -104,7 +104,9 @@
           "status": "상태",
           "total": "합계"
         },
-        "statusCancelling": "취소 중"
+        "statusCancelling": "취소 중",
+        "statusScheduled": "예약됨",
+        "scheduledNote": "액세스가 {{date}}에 종료됩니다"
       }
     },
     "invoices": {
