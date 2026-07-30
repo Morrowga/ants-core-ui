@@ -31,6 +31,7 @@
       "description": "モジュールは現在の請求期間の終了まで有効のままで、その後オフになります — 以降の請求はありません。データは保持され、いつでも再度有効にできます。",
       "keepOn": "有効のままにする",
       "disableAtPeriodEnd": "期間終了時に無効にする",
+      "scheduledNote": "アクセスは{{date}}に終了します",
       "disabling": "無効化中…"
     },
     "dashboardNotConfigured": "このモジュールのダッシュボードはまだ設定されていません。",

@@ -31,6 +31,7 @@
       "description": "The module stays active until the end of the current billing period, then turns off — you won't be charged again for it. Your data is kept, and you can re-enable it any time.",
       "keepOn": "Keep it on",
       "disableAtPeriodEnd": "Disable at period end",
+      "scheduledNote": "Access ends {{date}}",
       "disabling": "Disabling…"
     },
     "dashboardNotConfigured": "This module's dashboard isn't configured yet.",

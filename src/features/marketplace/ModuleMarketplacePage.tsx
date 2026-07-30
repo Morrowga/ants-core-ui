@@ -96,6 +96,16 @@ export function ModuleMarketplacePage() {
     if (!row || row.status === "not_enabled" || row.status === "canceled") {
       return <Badge variant="outline">{t("marketplace.status.notEnabled")}</Badge>;
     }
+    // "cancelling" here is a UI-only concept (active/trialing status +
+    // auto_renew off) -- the backend never stores that literal word, see
+    // the isCancelling derivation below for why.
+    if ((row.status === "active" || row.status === "trialing") && row.auto_renew === false) {
+      return (
+        <Badge variant="secondary">
+          {t("marketplace.status.cancelling", { date: formatDate(row.current_period_end) })}
+        </Badge>
+      );
+    }
     switch (row.status) {
       case "active":
         return <Badge>{t("marketplace.status.active")}</Badge>;
@@ -103,12 +113,6 @@ export function ModuleMarketplacePage() {
         return <Badge variant="accent">{t("marketplace.status.trialing")}</Badge>;
       case "incomplete":
         return <Badge variant="destructive">{t("marketplace.status.incomplete")}</Badge>;
-      case "cancelling":
-        return (
-          <Badge variant="secondary">
-            {t("marketplace.status.cancelling", { date: formatDate(row.current_period_end) })}
-          </Badge>
-        );
       default:
         return <Badge variant="outline">{row.status}</Badge>;
     }
@@ -244,8 +248,19 @@ export function ModuleMarketplacePage() {
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
           {catalog.data?.map((module) => {
             const row = rowsByKey.get(module.module_key);
-            const isOn = row?.status === "active" || row?.status === "trialing";
-            const isCancelling = row?.status === "cancelling";
+            // Backend's disable endpoint only ever flips auto_renew to
+            // false -- it never sets status to a "cancelling" string
+            // (that value doesn't exist anywhere in the backend).
+            // Deriving these from auto_renew directly is what actually
+            // reflects reality; checking row?.status === "cancelling"
+            // here would never be true, since the status word itself
+            // stays "active" right up until the real period end.
+            const isOn =
+              (row?.status === "active" || row?.status === "trialing") &&
+              row?.auto_renew !== false;
+            const isCancelling =
+              (row?.status === "active" || row?.status === "trialing") &&
+              row?.auto_renew === false;
             const isIncomplete = row?.status === "incomplete";
             const isEntering = enteringKey === module.module_key;
             const isEnabling = enablingKey === module.module_key;
@@ -303,6 +318,20 @@ export function ModuleMarketplacePage() {
                     >
                       {t("marketplace.disable")}
                     </Button>
+                  )}
+                  {/* Once cancelling, the Disable button is gone entirely
+                      (not just disabled/greyed-out) -- the muted "ends on
+                      {date}" text above already communicates the state,
+                      and there's no undo action currently wired (re-enabling
+                      before period end isn't exposed here), so a disabled
+                      button with nothing it can do would just be confusing
+                      chrome. */}
+                  {isCancelling && (
+                    <p className="text-xs text-muted-foreground">
+                      {t("marketplace.disableDialog.scheduledNote", {
+                        date: row?.current_period_end ? formatDate(row.current_period_end) : "",
+                      })}
+                    </p>
                   )}
                   {(isOn || isCancelling) && (
                     <Button

@@ -31,6 +31,7 @@
       "description": "模块将在当前计费周期结束前保持活跃，之后关闭 — 不再产生费用。您的数据将保留，可随时重新启用。",
       "keepOn": "保持启用",
       "disableAtPeriodEnd": "周期结束时停用",
+      "scheduledNote": "访问将于{{date}}结束",
       "disabling": "停用中…"
     },
     "dashboardNotConfigured": "此模块的仪表板尚未配置。",
