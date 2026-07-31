@@ -245,7 +245,7 @@
         "submitting": "전송 중...",
         "submitError": "오류가 발생했습니다. 다시 시도해 주세요.",
         "successTitle": "티켓이 접수되었습니다.",
-        "successBody": "이메일로 답변드리겠습니다. (임시 성공 상태입니다 — 지원 티켓이 아직 백엔드에 연결되지 않았습니다.)"
+        "successBody": "이메일로 답변드리겠습니다."
       },
       "contact": {
         "title": "문의하기",
@@ -263,7 +263,7 @@
         "submitting": "전송 중...",
         "submitError": "오류가 발생했습니다. 다시 시도해 주세요.",
         "successTitle": "메시지가 접수되었습니다.",
-        "successBody": "곧 답변드리겠습니다. (임시 성공 상태입니다 — 문의 양식이 아직 백엔드에 연결되지 않았습니다.)"
+        "successBody": "곧 답변드리겠습니다."
       },
       "authLayout": {
         "homeLink": "홈"

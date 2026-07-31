@@ -245,7 +245,7 @@
         "submitting": "发送中...",
         "submitError": "出现错误，请重试。",
         "successTitle": "工单已收到。",
-        "successBody": "我们将通过邮件回复您。（当前为占位成功状态——支持工单尚未连接后端。）"
+        "successBody": "我们将通过邮件回复您。"
       },
       "contact": {
         "title": "联系我们",
@@ -263,7 +263,7 @@
         "submitting": "发送中...",
         "submitError": "出现错误，请重试。",
         "successTitle": "消息已收到。",
-        "successBody": "我们会尽快回复您。（当前为占位成功状态——联系表单尚未连接后端。）"
+        "successBody": "我们会尽快回复您。"
       },
       "authLayout": {
         "homeLink": "首页"
