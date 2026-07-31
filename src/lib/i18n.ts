@@ -21,7 +21,28 @@ import hi from "@/locales/hi.json";
  * in `resources` below the same way the portal's i18n.ts does, once
  * translations for this project actually exist -- don't invent them
  * speculatively.
+ *
+ * Persistence: the previous version hardcoded `lng: "en"` on every init,
+ * with nothing reading from or writing to storage -- so any language
+ * picked via the switcher (FloatingLanguageSwitcher, the sidebar one)
+ * only ever lived in memory, and a page reload silently reset back to
+ * English every time. Fixed below with a plain localStorage read on
+ * init + an automatic save on every future change, no extra dependency
+ * needed for this.
  */
+const STORAGE_KEY = "ants.core.language";
+
+function getStoredLanguage(): string {
+  try {
+    return localStorage.getItem(STORAGE_KEY) ?? "en";
+  } catch {
+    // localStorage can throw in some locked-down browser contexts
+    // (private browsing in older Safari, etc.) -- fall back to English
+    // rather than crash the whole app over a persistence nicety.
+    return "en";
+  }
+}
+
 i18n.use(initReactI18next).init({
   resources: {
     en: { translation: en },
@@ -30,9 +51,22 @@ i18n.use(initReactI18next).init({
     zh: { translation: zh },
     hi: { translation: hi },
   },
-  lng: "en",
+  lng: getStoredLanguage(),
   fallbackLng: "en",
   interpolation: { escapeValue: false },
+});
+
+// Persists every future change automatically -- this fires on every
+// i18n.changeLanguage() call from anywhere (the floating switcher, the
+// sidebar one), so neither of those call sites needs to remember to
+// save anything themselves.
+i18n.on("languageChanged", (lng) => {
+  try {
+    localStorage.setItem(STORAGE_KEY, lng);
+  } catch {
+    // Same reasoning as getStoredLanguage() above -- persistence is a
+    // nicety, not worth crashing over if storage is unavailable.
+  }
 });
 
 export default i18n;
