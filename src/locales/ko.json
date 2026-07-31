@@ -24,7 +24,8 @@
       "active": "활성",
       "trialing": "체험 중",
       "incomplete": "결제 미완료",
-      "cancelling": "취소 중 — {{date}}까지 활성"
+      "cancelling": "{{date}}까지 유효",
+      "cancellingLabel": "취소 중"
     },
     "disableDialog": {
       "title": "{{name}}을(를) 비활성화할까요?",

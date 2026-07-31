@@ -24,7 +24,8 @@
       "active": "有効",
       "trialing": "トライアル中",
       "incomplete": "支払い未完了",
-      "cancelling": "キャンセル中 — {{date}}まで有効"
+      "cancelling": "{{date}}まで有効",
+      "cancellingLabel": "キャンセル中"
     },
     "disableDialog": {
       "title": "{{name}}を無効にしますか？",

@@ -24,7 +24,8 @@
       "active": "Active",
       "trialing": "Trialing",
       "incomplete": "Incomplete payment",
-      "cancelling": "Cancelling — active until {{date}}"
+      "cancelling": "Active until {{date}}",
+      "cancellingLabel": "Cancelling"
     },
     "disableDialog": {
       "title": "Disable {{name}}?",

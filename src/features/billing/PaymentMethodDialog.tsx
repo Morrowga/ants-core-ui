@@ -5,6 +5,7 @@ import {
   useElements,
   useStripe,
 } from "@stripe/react-stripe-js";
+import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
@@ -53,6 +54,7 @@ function PaymentMethodDialogInner({ open, onOpenChange, onSaved }: PaymentMethod
   const { t } = useTranslation();
   const stripe = useStripe();
   const elements = useElements();
+  const queryClient = useQueryClient();
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -90,6 +92,17 @@ function PaymentMethodDialogInner({ open, onOpenChange, onSaved }: PaymentMethod
       }
 
       await updatePaymentMethod({ payment_method_id: paymentMethodId });
+
+      // Invalidate here, in the dialog itself -- not left to whichever
+      // caller happens to remember to pass onSaved. BillingOverviewPage
+      // renders this dialog with no onSaved at all, which is exactly why
+      // the card update wasn't showing up instantly there: the save
+      // succeeded on Stripe's side, but nothing ever told this query to
+      // refetch, so the UI kept showing stale data until a manual page
+      // reload forced it. ModuleMarketplacePage's onSaved (which also
+      // triggers an enable-retry) still runs too, right after this.
+      await queryClient.invalidateQueries({ queryKey: ["payment-method"] });
+
       card.clear();
       onOpenChange(false);
       onSaved?.();

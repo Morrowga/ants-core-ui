@@ -24,7 +24,8 @@
       "active": "已启用",
       "trialing": "试用中",
       "incomplete": "付款未完成",
-      "cancelling": "取消中 — 有效至 {{date}}"
+      "cancelling": "有效期至 {{date}}",
+      "cancellingLabel": "取消中"
     },
     "disableDialog": {
       "title": "停用 {{name}}？",

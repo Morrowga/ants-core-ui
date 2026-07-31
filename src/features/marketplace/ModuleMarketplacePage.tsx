@@ -78,7 +78,7 @@ function splitDescription(description: string): string[] {
 }
 
 export function ModuleMarketplacePage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const queryClient = useQueryClient();
   const [disableTarget, setDisableTarget] = useState<ModuleCatalogEntry | null>(null);
   const [needsPaymentFor, setNeedsPaymentFor] = useState<string | null>(null);
@@ -182,6 +182,12 @@ export function ModuleMarketplacePage() {
       }
       const url = new URL(dashboardUrl);
       url.searchParams.set("code", data.code);
+      // Carries Core Dashboard's currently-selected UI language over to
+      // the module site via URL param -- cross-origin navigation (a
+      // different Vercel deployment) can't share localStorage/state
+      // directly, so this is the only way the module site knows which
+      // language to start in without the person having to re-select it.
+      url.searchParams.set("lang", i18n.language);
       // New tab, same as the previous plain link -- Core Dashboard stays
       // open as home base rather than navigating away from it entirely.
       window.open(url.toString(), "_blank", "noopener,noreferrer");
@@ -327,11 +333,9 @@ export function ModuleMarketplacePage() {
                       button with nothing it can do would just be confusing
                       chrome. */}
                   {isCancelling && (
-                    <p className="text-xs text-muted-foreground">
-                      {t("marketplace.disableDialog.scheduledNote", {
-                        date: row?.current_period_end ? formatDate(row.current_period_end) : "",
-                      })}
-                    </p>
+                    <Button variant="outline" disabled>
+                      {t("marketplace.status.cancellingLabel")}
+                    </Button>
                   )}
                   {(isOn || isCancelling) && (
                     <Button

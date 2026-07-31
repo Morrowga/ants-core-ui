@@ -24,7 +24,8 @@
       "active": "सक्रिय",
       "trialing": "ट्रायल पर",
       "incomplete": "भुगतान अधूरा",
-      "cancelling": "रद्द हो रहा है — {{date}} तक सक्रिय"
+      "cancelling": "{{date}} तक सक्रिय",
+      "cancellingLabel": "रद्द हो रहा है"
     },
     "disableDialog": {
       "title": "{{name}} अक्षम करें?",
