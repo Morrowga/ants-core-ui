@@ -1,9 +1,11 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useMemo, useState } from "react";
+import { useMutation } from "@tanstack/react-query";
+import { useMemo } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { z } from "zod";
 import contactImage from "@/assets/contact.png";
+import { apiClient } from "@/lib/api-client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -17,9 +19,11 @@ type ContactForm = {
   message: string;
 };
 
+/** Now wired to POST /public/contact -- new, unauthenticated endpoint,
+ * sends an email rather than writing a DB row (there's no account/company
+ * context for an anonymous visitor to attach one to). */
 export function ContactSection() {
   const { t } = useTranslation();
-  const [submitted, setSubmitted] = useState(false);
 
   // Built here, not as a module-level constant, so the error messages
   // inside it are translated -- zod schemas can't call t() themselves.
@@ -35,10 +39,11 @@ export function ContactSection() {
 
   const form = useForm<ContactForm>({ resolver: zodResolver(contactSchema) });
 
-  const onSubmit = (_values: ContactForm) => {
-    // TODO: wire to backend once the contact endpoint exists
-    setSubmitted(true);
-  };
+  const submit = useMutation({
+    mutationFn: (values: ContactForm) => apiClient.post("/public/contact", values),
+  });
+
+  const onSubmit = (values: ContactForm) => submit.mutate(values);
 
   return (
     <section id="contact" className="mx-auto w-full max-w-6xl px-6 py-16">
@@ -87,7 +92,7 @@ export function ContactSection() {
             </p>
           </CardHeader>
           <CardContent>
-            {submitted ? (
+            {submit.isSuccess ? (
               <div className="rounded-md bg-accent p-4 text-sm text-accent-foreground">
                 <p className="font-medium">{t("features.landing.contact.successTitle")}</p>
                 <p className="mt-1">{t("features.landing.contact.successBody")}</p>
@@ -137,7 +142,14 @@ export function ContactSection() {
                     </p>
                   )}
                 </div>
-                <Button type="submit">{t("features.landing.contact.submit")}</Button>
+                {submit.isError && (
+                  <p className="text-xs text-destructive">
+                    {t("features.landing.contact.submitError")}
+                  </p>
+                )}
+                <Button type="submit" disabled={submit.isPending}>
+                  {submit.isPending ? t("features.landing.contact.submitting") : t("features.landing.contact.submit")}
+                </Button>
               </form>
             )}
           </CardContent>

@@ -242,6 +242,8 @@
         "messagePlaceholder": "发生了什么？您期望的结果是什么？",
         "messageError": "请用一两句话描述问题。",
         "submit": "发送工单",
+        "submitting": "发送中...",
+        "submitError": "出现错误，请重试。",
         "successTitle": "工单已收到。",
         "successBody": "我们将通过邮件回复您。（当前为占位成功状态——支持工单尚未连接后端。）"
       },
@@ -258,6 +260,8 @@
         "messagePlaceholder": "您想了解什么？",
         "messageError": "请至少写一句话。",
         "submit": "发送消息",
+        "submitting": "发送中...",
+        "submitError": "出现错误，请重试。",
         "successTitle": "消息已收到。",
         "successBody": "我们会尽快回复您。（当前为占位成功状态——联系表单尚未连接后端。）"
       },

@@ -242,6 +242,8 @@
         "messagePlaceholder": "What happened, and what did you expect?",
         "messageError": "Describe the problem in a sentence or two.",
         "submit": "Send ticket",
+        "submitting": "Sending...",
+        "submitError": "Something went wrong. Please try again.",
         "successTitle": "Ticket received.",
         "successBody": "We'll reply by email. (Placeholder success state — support tickets aren't wired to a backend yet.)"
       },
@@ -258,6 +260,8 @@
         "messagePlaceholder": "What would you like to know?",
         "messageError": "Write at least a sentence.",
         "submit": "Send message",
+        "submitting": "Sending...",
+        "submitError": "Something went wrong. Please try again.",
         "successTitle": "Message received.",
         "successBody": "We'll get back to you soon. (Placeholder success state — the contact form isn't wired to a backend yet.)"
       },

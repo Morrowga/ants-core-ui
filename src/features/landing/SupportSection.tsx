@@ -1,9 +1,11 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useMemo, useState } from "react";
+import { useMutation } from "@tanstack/react-query";
+import { useMemo } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { z } from "zod";
 import supportImage from "@/assets/support.png";
+import { apiClient } from "@/lib/api-client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -17,12 +19,15 @@ type TicketForm = {
 };
 
 /**
- * Support section — FRONTEND-ONLY for now. The form validates client-side
- * but submission is stubbed; no network call is made.
+ * Support section -- now wired to POST /public/support (a new,
+ * unauthenticated endpoint, deliberately separate from
+ * app/core/routers/support.py's owner-only POST /support/tickets, which
+ * requires a logged-in account with an active plan). This one just
+ * sends an email; there's no company/account context for an anonymous
+ * landing-page visitor to attach a DB row to.
  */
 export function SupportSection() {
   const { t } = useTranslation();
-  const [submitted, setSubmitted] = useState(false);
 
   // Built here, not as a module-level constant, so the error messages
   // inside it are translated -- zod schemas can't call t() themselves.
@@ -37,10 +42,11 @@ export function SupportSection() {
 
   const form = useForm<TicketForm>({ resolver: zodResolver(ticketSchema) });
 
-  const onSubmit = (_values: TicketForm) => {
-    // TODO: wire to backend once the support-ticket endpoint exists
-    setSubmitted(true);
-  };
+  const submit = useMutation({
+    mutationFn: (values: TicketForm) => apiClient.post("/public/support", values),
+  });
+
+  const onSubmit = (values: TicketForm) => submit.mutate(values);
 
   return (
     <section id="support" className="mx-auto w-full max-w-6xl px-6 py-16">
@@ -84,7 +90,7 @@ export function SupportSection() {
             <CardTitle>{t("features.landing.support.formTitle")}</CardTitle>
           </CardHeader>
           <CardContent>
-            {submitted ? (
+            {submit.isSuccess ? (
               <div className="rounded-md bg-accent p-4 text-sm text-accent-foreground">
                 <p className="font-medium">{t("features.landing.support.successTitle")}</p>
                 <p className="mt-1">{t("features.landing.support.successBody")}</p>
@@ -118,7 +124,14 @@ export function SupportSection() {
                     </p>
                   )}
                 </div>
-                <Button type="submit">{t("features.landing.support.submit")}</Button>
+                {submit.isError && (
+                  <p className="text-xs text-destructive">
+                    {t("features.landing.support.submitError")}
+                  </p>
+                )}
+                <Button type="submit" disabled={submit.isPending}>
+                  {submit.isPending ? t("features.landing.support.submitting") : t("features.landing.support.submit")}
+                </Button>
               </form>
             )}
           </CardContent>
